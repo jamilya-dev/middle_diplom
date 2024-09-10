@@ -8,7 +8,6 @@ const modals = () => {
   const servicesModal = document.querySelector('.services-modal');
   const servicesModalClose = document.querySelector('.services-modal__close');
 
-  console.log(serviceBtns);
   modalBtn.addEventListener('click', () => {
     overlay.style.display = 'block';
     headerModal.style.display = 'block';
@@ -20,12 +19,9 @@ const modals = () => {
   });
 
   serviceBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      console.log(e.target);
-      if (e.target.closest('.btn-success')) {
-        overlay.style.display = 'block';
-        servicesModal.style.display = 'block';
-      }
+    btn.addEventListener('click', () => {
+      overlay.style.display = 'block';
+      servicesModal.style.display = 'block';
     });
   });
 
