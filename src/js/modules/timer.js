@@ -1,8 +1,9 @@
-const timer = (dedline) => {
-  const timerDays = document.querySelector('.count_1 > span');
-  const timerHours = document.querySelector('.count_2 > span');
-  const timerMinutes = document.querySelector('.count_3 > span');
-  const timerSeconds = document.querySelector('.count_4 > span');
+const timer = (dedline, timerId) => {
+  const timerItem = document.getElementById(timerId);
+  const timerDays = timerItem.querySelector('.count_1 > span');
+  const timerHours = timerItem.querySelector('.count_2 > span');
+  const timerMinutes = timerItem.querySelector('.count_3 > span');
+  const timerSeconds = timerItem.querySelector('.count_4 > span');
 
   let intervalId;
 
