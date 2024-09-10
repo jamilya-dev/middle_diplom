@@ -4,4 +4,4 @@ import timer from './modules/timer';
 
 modals();
 carousel();
-timer();
+timer('25 september 2024');
