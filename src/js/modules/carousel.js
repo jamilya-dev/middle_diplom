@@ -15,5 +15,20 @@ export const carousel = () => {
       },
     },
   });
+
+  const serviceSwiper = new Swiper('.serviceSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.services__arrow--right',
+      prevEl: '.services__arrow--left',
+    },
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+    },
+  });
 };
 export default carousel;
