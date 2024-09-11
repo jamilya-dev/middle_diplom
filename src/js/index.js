@@ -7,4 +7,5 @@ modals();
 carousel();
 timer('25 september 2024', 'timer_1');
 timer('25 september 2024', 'timer_2');
-sendForms();
+sendForms('form_1');
+sendForms('form_2');
