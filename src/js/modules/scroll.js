@@ -10,7 +10,6 @@ const scroll = () => {
     } else {
       scrollBtn.style.display = 'none';
     }
-    console.log(scrollHide);
   });
 
   scrollBtn.addEventListener('click', () => {
