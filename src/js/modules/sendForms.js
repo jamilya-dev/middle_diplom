@@ -1,4 +1,4 @@
-const sendForms = (formId) => {
+const sendForms = (formId, someElem) => {
   const form = document.getElementById(formId);
   const statusBlock = document.createElement('div');
   const loadText = 'Загрузка...';
@@ -40,6 +40,11 @@ const sendForms = (formId) => {
       formBody[key] = val;
     });
 
+    if (someElem) {
+      const element = document.getElementById(someElem);
+      formBody.someElem = element.value;
+    }
+
     if (validate(formElements)) {
       sendData(formBody)
         .then((data) => {
@@ -54,7 +59,6 @@ const sendForms = (formId) => {
         })
         .catch((error) => {
           statusBlock.textContent = errorText;
-          // statusBlock.textContent = `${errorText}: ${error.message}`;
         });
     } else {
       alert(`Данные не валидны!!!`);
