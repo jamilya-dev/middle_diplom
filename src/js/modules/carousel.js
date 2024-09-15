@@ -9,7 +9,7 @@ export const carousel = () => {
       prevEl: '.benefits__arrow--left',
     },
     breakpoints: {
-      576: {
+      577: {
         slidesPerView: 3,
         spaceBetween: 20,
       },
@@ -24,7 +24,7 @@ export const carousel = () => {
       prevEl: '.services__arrow--left',
     },
     breakpoints: {
-      576: {
+      577: {
         slidesPerView: 2,
         spaceBetween: 20,
       },

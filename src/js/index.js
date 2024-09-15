@@ -5,6 +5,7 @@ import sendForms from './modules/sendForms';
 import docs from './modules/docs';
 import scroll from './modules/scroll';
 import calc from './modules/calc';
+import comments from './modules/comments';
 
 document.addEventListener('DOMContentLoaded', function () {
   modals();
@@ -28,4 +29,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   docs();
   scroll();
+  comments();
 });

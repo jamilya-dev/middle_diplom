@@ -1,4 +1,4 @@
-const sendForms = (formId, someElem) => {
+const sendForms = (formId, someElem = '') => {
   const form = document.getElementById(formId);
   const statusBlock = document.createElement('div');
   const loadText = 'Загрузка...';
@@ -9,7 +9,7 @@ const sendForms = (formId, someElem) => {
 
   const validate = (list) => {
     let success = true;
-
+    console.log(list);
     list.forEach((input) => {
       if (input.value.trim() === '') {
         success = false;
@@ -83,6 +83,7 @@ const sendForms = (formId, someElem) => {
       throw new Error('Верните форму на место, пожалуйста!!!');
     }
     form.addEventListener('submit', (e) => {
+      console.log('submit');
       e.preventDefault();
       submitForm();
     });

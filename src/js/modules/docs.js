@@ -2,6 +2,7 @@ const docs = () => {
   const docs = document.querySelectorAll('.sertificate-document');
   const docsImgs = document.querySelectorAll('.sertificate-document > img.img-responsive');
   const overlay = document.querySelector('.overlay');
+  const documentOverlay = document.querySelectorAll('.document-overlay');
 
   const modal = document.createElement('div');
   modal.classList.add('docs-modal');
@@ -31,7 +32,8 @@ const docs = () => {
   docs.forEach((item, index) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
-      const srcImg = docsImgs[index].getAttribute('src');
+      const srcImg = docsImgs[index].getAttribute('src').replace('documents', 'documents/original');
+      console.log(srcImg);
       modalImage.setAttribute('src', srcImg);
       modal.style.display = 'block';
       overlay.style.display = 'block';
@@ -42,6 +44,15 @@ const docs = () => {
           modal.style.top = `${50 * progress}%`;
         },
       });
+    });
+    item.addEventListener('mouseenter', () => {
+      documentOverlay[index].style.opacity = '1';
+      documentOverlay[index].style.width = '200px';
+      documentOverlay[index].style.left = '50%';
+      documentOverlay[index].style.transform = 'translateX(-50%)';
+    });
+    item.addEventListener('mouseleave', () => {
+      documentOverlay[index].style.opacity = '0';
     });
   });
 

@@ -1,10 +1,10 @@
 const scroll = () => {
-  let scrollBtn = document.querySelector('.smooth-scroll');
+  const scrollBtn = document.querySelector('.smooth-scroll');
 
   scrollBtn.style.display = 'none';
 
   window.addEventListener('scroll', () => {
-    const scrollHide = document.documentElement.scrollTop; // 674
+    const scrollHide = document.documentElement.scrollTop;
     if (scrollHide > 674) {
       scrollBtn.style.display = 'block';
     } else {

@@ -43,6 +43,7 @@ const timer = (dedline, timerId) => {
       timerSeconds.textContent = '00';
     }
   };
+  updateClock();
   intervalId = setInterval(updateClock, 1000);
 };
 
