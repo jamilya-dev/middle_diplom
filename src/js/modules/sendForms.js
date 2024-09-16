@@ -9,7 +9,6 @@ const sendForms = (formId, someElem = '') => {
 
   const validate = (list) => {
     let success = true;
-    console.log(list);
     list.forEach((input) => {
       if (input.value.trim() === '') {
         success = false;
@@ -33,9 +32,6 @@ const sendForms = (formId, someElem = '') => {
     const formData = new FormData(form);
     const formBody = {};
 
-    statusBlock.textContent = loadText;
-    form.append(statusBlock);
-
     formData.forEach((val, key) => {
       formBody[key] = val;
     });
@@ -46,12 +42,16 @@ const sendForms = (formId, someElem = '') => {
     }
 
     if (validate(formElements)) {
+      statusBlock.textContent = loadText;
+      form.append(statusBlock);
+
       sendData(formBody)
         .then((data) => {
           statusBlock.textContent = successText;
           formElements.forEach((input) => {
-            input.value = '';
-            input.classList.remove('success');
+            if (input.type !== 'hidden') {
+              input.value = '';
+            }
           });
           setTimeout(() => {
             statusBlock.textContent = '';
@@ -61,20 +61,22 @@ const sendForms = (formId, someElem = '') => {
           statusBlock.textContent = errorText;
         });
     } else {
-      alert(`Данные не валидны!!!`);
+      formElements.forEach((input) => {
+        if (input.value === '') input.style.borderColor = 'red';
+      });
     }
   };
 
   nameInputs.forEach((input) => {
     input.addEventListener('input', () => {
+      input.style.borderColor = '#dfdfdf';
       input.value = input.value.replace(/[^а-яА-ЯёЁa-zA-Z]/i, '');
-      if (input.value !== '') input.classList.add('success');
     });
   });
   phoneInputs.forEach((input) => {
     input.addEventListener('input', () => {
+      input.style.borderColor = '#dfdfdf';
       input.value = input.value.replace(/[^\+\d]|\+(?=.*\+)|\d(?=.*\d{16})/g, '');
-      if (input.value !== '') input.classList.add('success');
     });
   });
 
@@ -83,7 +85,6 @@ const sendForms = (formId, someElem = '') => {
       throw new Error('Верните форму на место, пожалуйста!!!');
     }
     form.addEventListener('submit', (e) => {
-      console.log('submit');
       e.preventDefault();
       submitForm();
     });

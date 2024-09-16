@@ -33,7 +33,6 @@ const docs = () => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
       const srcImg = docsImgs[index].getAttribute('src').replace('documents', 'documents/original');
-      console.log(srcImg);
       modalImage.setAttribute('src', srcImg);
       modal.style.display = 'block';
       overlay.style.display = 'block';
