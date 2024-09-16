@@ -1,6 +1,18 @@
 const comments = () => {
   const commentsContainer = document.querySelector('.comments-container');
 
+  const spinner = document.createElement('div');
+  spinner.classList.add('loading-spinner');
+  spinner.style.display = 'block';
+  spinner.style.cssText = 'display: flex; justify-content: center;';
+  commentsContainer.prepend(spinner);
+
+  fetch('../images/users/spinner.svg')
+    .then((response) => response.text())
+    .then((data) => {
+      spinner.innerHTML = data;
+    });
+
   const getData = () => {
     return fetch('../comments.json')
       .then((response) => response.json())
@@ -54,6 +66,7 @@ const comments = () => {
         }
         itemIndex++;
       });
+      spinner.style.display = 'none';
     });
   };
 
