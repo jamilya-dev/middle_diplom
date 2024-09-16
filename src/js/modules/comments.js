@@ -26,9 +26,9 @@ const comments = () => {
           commentElement.innerHTML = `
           <div class="col-xs-3 col-sm-2" bis_skin_checked="1">
             <div class="review-user" bis_skin_checked="1">
-              <img src="images/users/${comment.image}" alt="${comment.author}" class="img-responsive avatar">
+              <img src="images/users/${comment.image ? comment.image : 'avatar.jpg'}" alt="${comment.author}" class="img-responsive avatar">
             </div>
-          </div>
+          </div> 
           <div class="col-xs-9 col-sm-9" bis_skin_checked="1">
             <div class="review-inner review-arrow" bis_skin_checked="1">
               <p class="text-normal">${comment.author}</p>
